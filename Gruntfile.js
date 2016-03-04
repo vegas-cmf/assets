@@ -32,7 +32,18 @@ module.exports = function (grunt) {
             main: {
                 expand: true,
                 src: 'vendor/vegas-cmf/*/assets/',
-                dest: 'public/assets/'
+                dest: 'public/assets/',
+                filter: function (filepath) {
+
+                    var path = require('path');
+
+                    var dest = path.join(
+                        grunt.config('copy.main.dest'),
+                        path.basename(filepath)
+                    );
+
+                    return !(grunt.file.exists(dest));
+                }
             }
         }
 
