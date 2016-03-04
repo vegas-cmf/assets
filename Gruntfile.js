@@ -51,9 +51,9 @@ module.exports = function (grunt) {
     });
 
     // Update dependencies tasks
-    grunt.registerTask('update', ['vegas-assets-prepare', 'bower:update']);
+    grunt.registerTask('update', ['vegas-assets-prepare', 'copy', 'bower:update']);
 
     // Default tasks.
-    grunt.registerTask('default', ['vegas-assets-prepare', 'bower:install']);
+    grunt.registerTask('default', ['vegas-assets-prepare', 'copy', 'bower:install']);
 
 };
