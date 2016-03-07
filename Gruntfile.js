@@ -37,7 +37,7 @@ module.exports = function (grunt) {
                 dest: 'public/assets/',
                 filter: function (filepath) {
                     var path = require('path');
-                    var dest = path.join(grunt.config('copy.main.dest'), path.basename(filepath));
+                    var dest = path.join(grunt.config('vegas-assets-copy.main.dest'), path.basename(filepath));
                     return !(grunt.file.exists(dest));
                 }
             }
