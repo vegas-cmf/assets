@@ -1,8 +1,8 @@
 module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-vegas-assets-prepare');
+    grunt.loadNpmTasks('grunt-vegas-assets-copy');
     grunt.loadNpmTasks('grunt-bower-task');
-    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Project configuration.
     grunt.initConfig({
@@ -28,20 +28,16 @@ module.exports = function (grunt) {
                 }
             }
         },
-        copy: {
+        "vegas-assets-copy": {
             main: {
                 expand: true,
-                src: 'vendor/vegas-cmf/*/assets/',
+                cwd_truncate: true,
+                cwd: 'vendor/vegas-cmf',
+                src: '*/assets/**',
                 dest: 'public/assets/',
                 filter: function (filepath) {
-
                     var path = require('path');
-
-                    var dest = path.join(
-                        grunt.config('copy.main.dest'),
-                        path.basename(filepath)
-                    );
-
+                    var dest = path.join(grunt.config('copy.main.dest'), path.basename(filepath));
                     return !(grunt.file.exists(dest));
                 }
             }
@@ -51,9 +47,9 @@ module.exports = function (grunt) {
     });
 
     // Update dependencies tasks
-    grunt.registerTask('update', ['vegas-assets-prepare', 'copy', 'bower:update']);
+    grunt.registerTask('update', ['vegas-assets-prepare', 'vegas-assets-copy', 'bower:update']);
 
     // Default tasks.
-    grunt.registerTask('default', ['vegas-assets-prepare', 'copy', 'bower:install']);
+    grunt.registerTask('default', ['vegas-assets-prepare', 'vegas-assets-copy', 'bower:install']);
 
 };
