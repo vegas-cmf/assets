@@ -125,3 +125,62 @@ For gulp:
 ```shell
 gulp bower
 ```
+
+Vegas CMF Assets Manager 
+=========================
+Within this package, an assets container has been delivered, it's based on Phalcon's one. Assets Manager allows you to easily add resources like JS scripts, CSS styles etc. To use this feature, please create shared service in your Vegas project, as follows:
+
+```php
+namespace App\Shared;
+
+use Vegas\Di\Injector\SharedServiceProviderInterface;
+
+class AssetsManager implements SharedServiceProviderInterface
+{
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return 'assets';
+    }
+
+    /**
+     * @param \Phalcon\DiInterface $di
+     * @return mixed
+     */
+    public function getProvider(\Phalcon\DiInterface $di)
+    {
+        return function() use ($di)
+        {
+            return new Vegas\Assets\Manager();
+        };
+    }
+}
+```
+
+From this point, you will have a possibilty to invoke Manager methods, by following syntax:
+```
+// output JS files path
+{{ assets.outputJs() }}
+
+// output CSS files path
+{{ assets.outputCss() }}
+
+// add JS file to assets container
+{{ assets.addJs('some/valid/path/to/js/file.js') }}
+
+// add CSS file to assets container
+{{ assets.addCss('some/valid/path/to/css/file.css') }}
+
+```
+
+####Note####
+Keep it in mind, that ```config.php``` file must be updated too.
+
+```php
+'sharedServices' => [
+    ...
+    'App\Shared\AssetsManager'
+]
+```
