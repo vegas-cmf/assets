@@ -53,14 +53,14 @@ Add the following script commands to your composer.json file
 ```shell
 "scripts": {
     "post-install-cmd": [
-        "cp -n ./vendor/vegas-cmf/assets/Gruntfile.js ./Gruntfile.js",
-        "cp -n ./vendor/vegas-cmf/assets/grunt_package.json ./package.json",
-        "cp -n ./vendor/vegas-cmf/assets/bower.json ./bower_base.json"
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/Gruntfile.js -O ./Gruntfile.js",
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/grunt_package.json -O ./package.json",
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/bower.json -O ./bower_base.json"
     ],
     "post-update-cmd": [
-        "cp -n ./vendor/vegas-cmf/assets/Gruntfile.js ./Gruntfile.js || true",
-        "cp -n ./vendor/vegas-cmf/assets/grunt_package.json ./package.json || true",
-        "cp -n ./vendor/vegas-cmf/assets/bower.json ./bower_base.json || true"
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/Gruntfile.js -O ./Gruntfile.js || true",
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/grunt_package.json -O ./package.json || true",
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/bower.json -O ./bower_base.json || true"
     ]
 }
 ```
@@ -69,16 +69,15 @@ Add the following script commands to your composer.json file
 
 ```shell
 "scripts": {
-
     "post-install-cmd": [
-        "cp -n ./vendor/vegas-cmf/assets/gulpfile.js ./gulpfile.js",
-        "cp -n ./vendor/vegas-cmf/assets/gulp_package.json ./package.json",
-        "cp -n ./vendor/vegas-cmf/assets/bower.json ./bower_base.json"
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/gulpfile.js -O ./gulpfile.js",
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/gulp_package.json -O ./package.json",
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/bower.json -O ./bower_base.json"
     ],
     "post-update-cmd": [
-        "cp -n ./vendor/vegas-cmf/assets/gulpfile.js ./gulpfile.js || true",
-        "cp -n ./vendor/vegas-cmf/assets/gulp_package.json ./package.json || true",
-        "cp -n ./vendor/vegas-cmf/assets/bower.json ./bower_base.json || true"
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/gulpfile.js -O ./gulpfile.js || true",
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/gulp_package.json -O ./package.json || true",
+        "wget -nc https://raw.githubusercontent.com/vegas-cmf/assets/v1.2/bower.json -O ./bower_base.json || true"
     ]
 }
 ```
