@@ -11,13 +11,13 @@
     ],
     "repositories": [],
     "require": {
-        "php": ">=5.4",
-        "ext-phalcon": ">=2.0",
-        "phalcon/incubator": ">=2.0"
+        "php": "^5.5 || ^7.0",
+        "ext-phalcon": "^3.0",
+        "phalcon/incubator": "^3.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.*",
-        "satooshi/php-coveralls": "dev-master"
+        "phpunit/phpunit": "4.* || 5.*",
+        "satooshi/php-coveralls": "^1.0"
     },
     "autoload": {
         "psr-4": {
